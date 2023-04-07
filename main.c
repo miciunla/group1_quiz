@@ -93,3 +93,35 @@ int main(){
 
     return 0;
 }
+
+
+int borrow_book(char(*book_name)[100], char(*book_writer)[100], char(*book_publisher)[100], int *borrow, int *book_length)
+{
+    int user_borrow = 0;
+
+    search_book(book_name, book_writer, book_publisher, borrow, book_length);
+
+    printf("\nIf you want to borrow a book, please enter the 'NO.' number of the book. : ");
+    
+    scanf_s("%d", &user_borrow);
+    
+
+    if (borrow[user_borrow] == 1)
+    {
+        printf("Sorry. The book is already borrowed.\n");
+        printf("\nIf you want to borrow other books, Please enter '1'\nif not, please enter '2' : ");
+        scanf_s("%d", &user_borrow);
+
+        if (user_borrow == 1) borrow_book(book_name, book_writer, book_publisher, borrow, book_length);
+        else if (user_borrow == 2) return 0;
+    }
+    else
+    {
+        borrow[user_borrow] = 1;
+        printf("The book is borrowed now. Thank you!\n");
+        return 0;
+    }
+
+    return 0;
+
+}
