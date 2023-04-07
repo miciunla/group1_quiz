@@ -125,3 +125,13 @@ int borrow_book(char(*book_name)[100], char(*book_writer)[100], char(*book_publi
     return 0;
 
 }
+
+void checkStatus(stuID){
+    //checking book struct for stuID
+    if(student->id->books == NULL){
+        print("You have not borrowed any books")
+    }
+    else{
+        for()
+    }
+}
