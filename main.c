@@ -121,6 +121,18 @@ int borrow_book(char(*book_name)[100], char(*book_writer)[100], char(*book_publi
         printf("The book is borrowed now. Thank you!\n");
         return 0;
     }
+    
+    void addBook(const char *strT, const char *strA, int bookID) {
+    if (find_book(bookID) >= 0) {
+        printf("a book with ID %s already exists\n", bookID);
+    } else {
+        strncpy(library[book_count].strT, strT, sizeof(library[book_count].strT));
+        strncpy(library[book_count].strA, strA, sizeof(library[book_count].strA));
+        strncpy(library[book_count].bookID, bookID, sizeof(library[book_count].bookID));
+        ++book_count;
+        printf("Book added!\n");
+    }
+}
 
     return 0;
 
